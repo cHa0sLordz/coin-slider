@@ -483,27 +483,10 @@
 				$(item).next().hide();
 			});
 
-			// Shuffle hack
-			function ShuffleArray(array) {
-				var currentIndex = array.length,
-					temporaryValue, randomIndex;
-
-				while (0 !== currentIndex) {
-
-					randomIndex = Math.floor(Math.random() * currentIndex);
-					currentIndex -= 1;
-
-					// And swap it with the current element.
-					temporaryValue = array[currentIndex];
-					array[currentIndex] = array[randomIndex];
-					array[randomIndex] = temporaryValue;
-				}
-
-				return array;
+			// shuffle the imagearray
+			if (params[el.id].shuffleImageOrder) {
+				randomEffect(images[el.id]);
 			}
-
-			ShuffleArray(images[el.id]);
-			// end of Shuffle hack
 
 			// set panel
 			$(el).css({
@@ -553,7 +536,8 @@
 		navigation: true, // show/hide prev, next and buttons
 		showNavigationPrevNext: true,
 		showNavigationButtons: true,
-		navigationPrevNextAlwaysShown: false
+		navigationPrevNextAlwaysShown: false,
+		shuffleImageOrder: true // displays the images in random order
 	};
 
 })(jQuery);
