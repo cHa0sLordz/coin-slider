@@ -483,6 +483,28 @@
 				$(item).next().hide();
 			});
 
+			// Shuffle hack
+			function ShuffleArray(array) {
+				var currentIndex = array.length,
+					temporaryValue, randomIndex;
+
+				while (0 !== currentIndex) {
+
+					randomIndex = Math.floor(Math.random() * currentIndex);
+					currentIndex -= 1;
+
+					// And swap it with the current element.
+					temporaryValue = array[currentIndex];
+					array[currentIndex] = array[randomIndex];
+					array[randomIndex] = temporaryValue;
+				}
+
+				return array;
+			}
+
+			ShuffleArray(images[el.id]);
+			// end of Shuffle hack
+
 			// set panel
 			$(el).css({
 				'background-image': 'url(' + images[el.id][0] + ')',
